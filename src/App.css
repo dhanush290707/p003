@@ -1,0 +1,81 @@
+header{
+  height: 50px;
+  background: linear-gradient(to right, #dbe2e9, #c3d5e0);
+  line-height: 50px;        /*Line height sets the height of the text line*/
+  text-align: center;       /*Center the text in the header*/
+  color: #2c3e50
+}
+
+section{
+  height: calc(100% - 80px); /* 100% height minus header and footer heights */
+  overflow: auto;          /*Allows scrolling if content exceeds the height*/
+}
+
+footer{
+  height: 30px;
+  line-height: 30px;        /*Line height sets the height of the text line*/
+  font-size: 8pt;           /*pt stands for points, a unit of measurement in typography*/
+  color: #2c3e50;
+  background: linear-gradient(to right, #dbe2e9, #c3d5e0);
+  text-align: center;       /*Center the text in the footer*/
+}
+
+nav{
+  display: flex;            /*Flexbox for layout*/
+  justify-content: space-between; /*Space between logo and navigation items*/
+}
+
+nav .logo{
+  font-size: 20px;
+  font-weight: bold;        /*Bold text for the logo*/
+  margin-left: 15px;        /*Left margin for spacing*/
+}
+
+nav ul{
+  list-style: none;         /*Remove default list styling*/
+  display: flex;            /*Flexbox for horizontal layout, all the content appears on a single line*/
+  margin: 0;                /*Remove default margin*/
+  padding: 0;               /*Remove default padding*/
+  
+}
+
+nav ul li{                  /*List items in the navigation*/
+  margin: 0 15px;        /*If we use single value in margin, it is applicable to all the margins in all directions. If we use 2 values, the first value is applicable to the top and bottom margins and the 2nd value for left and right margin*/
+}
+
+nav .menu{
+  margin-right: 15px;       /*Right margin for spacing*/
+  font-size: 20pt;          /*Font size for the menu icon*/
+  display: none;           /*Initially hidden, will be shown on smaller screens*/ 
+}
+
+/*Responsiveness*/
+@media(max-width: 768px){   /*Most of the screens suit 768px or less*/
+  nav .menu{
+    display: block;         /*Show the menu icon on smaller screens*/
+  }
+
+  nav ul{
+    display: none;          /*Hide the navigation items on smaller screens*/
+    position: absolute;     /*Position the menu items absolutely*/
+    top: 50px;             /*Position below the header*/
+    left: 0;               /*Align to the left edge of the screen*/
+    margin: 0;            /*Remove default margin*/
+    padding: 0;             /*Remove default padding*/
+    background: linear-gradient(to right, #dbe2e9, #c3d5e0); /*Background color for the dropdown menu*/
+    width: 100%;            /*Full width of the screen*/
+    z-index: 1000;          /*Ensure it appears above other content*/
+  }
+
+  nav ul.active{
+    display: block;        /*Show the navigation items when the menu icon is clicked*/
+    
+  }
+
+  nav ul li{
+    background: linear-gradient(to right, #c3d5e0, #dbe2e9); /*Background color for each menu item*/
+    
+    padding: 0; /*Remove padding for a cleaner look*/
+    margin: 2px 0 0 0; /*Remove all margins for a cleaner look. margin-top: 2px; /*Top margin for spacing between items*/
+  }
+}
